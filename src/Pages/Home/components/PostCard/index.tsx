@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { PostCardContainer } from './styles'
 
 interface PostCardProps {
   title: string
@@ -10,9 +11,9 @@ interface PostCardProps {
 export function PostCard(props: PostCardProps) {
   const convertBody = props.body.substring(0, 112).concat('...')
   return (
-    <div>
+    <PostCardContainer>
       <span>{props.title}</span>
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{convertBody}</ReactMarkdown>
-    </div>
+    </PostCardContainer>
   )
 }

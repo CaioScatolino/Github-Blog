@@ -14,4 +14,5 @@ export const IssueContainer = styled.div`
   grid-gap: 3rem;
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 3rem;
 `
