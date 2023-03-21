@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
 
-    background-color: ${(props) => props.theme['base-profile']};
+    background-color: ${(props) => props.theme['base-background']};
     color: ${(props) => props.theme['base-substitle']};
     -webkit-font-smoothing: antialiased;
 
