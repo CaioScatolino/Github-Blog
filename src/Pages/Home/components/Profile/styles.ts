@@ -33,7 +33,7 @@ export const CardSocials = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   margin-top: 1.2rem;
 `
 

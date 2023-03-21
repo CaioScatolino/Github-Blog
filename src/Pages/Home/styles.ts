@@ -19,5 +19,12 @@ export const IssueContainer = styled.div`
 
   a {
     text-decoration: none;
+    transition: 0.2s;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+
+    &:hover {
+      border: 2px solid ${(props) => props.theme['base-label']};
+    }
   }
 `

@@ -9,6 +9,9 @@ export const PostCardContainer = styled.div`
   background-color: ${(props) => props.theme['base-post']};
   border-radius: 1rem;
   gap: 3rem;
+  p {
+    color: ${(props) => props.theme['base-text']};
+  }
 `
 export const PostCardTitle = styled.div`
   display: flex;

@@ -40,6 +40,7 @@ interface SelectedIssueProps {
   created_at: Date
   comments: number
   body: string
+  html_url: string
 }
 
 interface HomeContextType {
@@ -104,6 +105,7 @@ export function HomeProvider({ children }: HomeProviderProps) {
     created_at: new Date(),
     comments: 0,
     body: '',
+    html_url: '',
   })
 
   async function fetchSelectedIssue(query?: string) {
