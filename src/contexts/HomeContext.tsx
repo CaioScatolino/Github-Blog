@@ -32,11 +32,23 @@ interface IssueItemsProps {
   created_at: Date
 }
 
+interface SelectedIssueProps {
+  title: string
+  user: {
+    login: string
+  }
+  created_at: Date
+  comments: number
+  body: string
+}
+
 interface HomeContextType {
   // issues: IssuesProps[]
   githubData: UserData
   issuesArray: IssueItemsProps[]
+  selectedIssue: SelectedIssueProps
   fetchIssuesGit: (query?: string) => Promise<void>
+  fetchSelectedIssue: (query?: string) => Promise<void>
 }
 
 interface HomeProviderProps {
@@ -76,7 +88,7 @@ export function HomeProvider({ children }: HomeProviderProps) {
 
   async function fetchIssuesGit(query?: string) {
     const response = await api.get(
-      `https://api.github.com/search/issues?q=${query}%20repo:caioscatolino/github-blog`,
+      `search/issues?q=${query}%20repo:caioscatolino/github-blog`,
     )
     setIssuesGitData(response.data)
   }
@@ -84,8 +96,33 @@ export function HomeProvider({ children }: HomeProviderProps) {
     fetchIssuesGit('')
   }, [])
 
+  const [selectedIssue, setSelectedIssue] = useState<SelectedIssueProps>({
+    title: '',
+    user: {
+      login: '',
+    },
+    created_at: new Date(),
+    comments: 0,
+    body: '',
+  })
+
+  async function fetchSelectedIssue(query?: string) {
+    const response = await api.get(
+      `/repos/caioscatolino/github-blog/issues/${query}`,
+    )
+    setSelectedIssue(response.data)
+  }
+
   return (
-    <HomeContext.Provider value={{ githubData, fetchIssuesGit, issuesArray }}>
+    <HomeContext.Provider
+      value={{
+        githubData,
+        fetchIssuesGit,
+        issuesArray,
+        selectedIssue,
+        fetchSelectedIssue,
+      }}
+    >
       {children}
     </HomeContext.Provider>
   )

@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 export const PostCardContainer = styled.div`
-  margin-top: 2rem;
   width: 100%;
-  max-height: 16.25rem;
+  height: 16.25rem;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   background-color: ${(props) => props.theme['base-post']};
-  gap: 1rem;
   border-radius: 1rem;
+  gap: 3rem;
 `
 export const PostCardTitle = styled.div`
   display: flex;

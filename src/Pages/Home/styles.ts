@@ -6,6 +6,7 @@ export const HomeContainer = styled.main`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 `
 
 export const IssueContainer = styled.div`
@@ -15,4 +16,8 @@ export const IssueContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   padding-bottom: 3rem;
+
+  a {
+    text-decoration: none;
+  }
 `

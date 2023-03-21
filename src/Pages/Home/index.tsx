@@ -4,21 +4,33 @@ import { ProfileCard } from './components/Profile'
 import { useContext } from 'react'
 import { HomeContext } from '../../contexts/HomeContext'
 import { PostCard } from './components/PostCard'
+import { NavLink } from 'react-router-dom'
 
 export function Home() {
-  const { issuesArray /* fetchIssuesGit */ } = useContext(HomeContext)
+  const { issuesArray, fetchSelectedIssue } = useContext(HomeContext)
+
+  function handleEnterPost(number: number) {
+    fetchSelectedIssue(String(number))
+  }
   return (
     <HomeContainer>
       <ProfileCard />
       <IssueContainer>
         {issuesArray.map((issue) => {
           return (
-            <PostCard
-              key={issue.id}
-              title={issue.title}
-              body={issue.body}
-              date={issue.created_at}
-            />
+            <NavLink
+              to="/post"
+              onClick={() => handleEnterPost(issue.number)}
+              title="Post"
+              key={issue.number}
+            >
+              <PostCard
+                key={issue.id}
+                title={issue.title}
+                body={issue.body}
+                date={issue.created_at}
+              />
+            </NavLink>
           )
         })}
       </IssueContainer>
