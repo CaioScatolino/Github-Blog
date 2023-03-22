@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { HomeContext } from '../../contexts/HomeContext'
 import { PostCard } from './components/PostCard'
 import { NavLink } from 'react-router-dom'
+import { SearchForm } from './components/SearchForm'
 
 export function Home() {
   const { issuesArray, fetchSelectedIssue } = useContext(HomeContext)
@@ -15,6 +16,7 @@ export function Home() {
   return (
     <HomeContainer>
       <ProfileCard />
+      <SearchForm />
       <IssueContainer>
         {issuesArray.map((issue) => {
           return (

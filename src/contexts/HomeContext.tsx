@@ -48,6 +48,7 @@ interface HomeContextType {
   githubData: UserData
   issuesArray: IssueItemsProps[]
   selectedIssue: SelectedIssueProps
+  issuesGitData: issuesGitDataProps
   fetchIssuesGit: (query?: string) => Promise<void>
   fetchSelectedIssue: (query?: string) => Promise<void>
 }
@@ -89,7 +90,7 @@ export function HomeProvider({ children }: HomeProviderProps) {
 
   async function fetchIssuesGit(query?: string) {
     const response = await api.get(
-      `search/issues?q=${query}%20repo:caioscatolino/github-blog`,
+      `/search/issues?q=${query}%20repo:caioscatolino/github-blog`,
     )
     setIssuesGitData(response.data)
   }
@@ -118,6 +119,7 @@ export function HomeProvider({ children }: HomeProviderProps) {
   return (
     <HomeContext.Provider
       value={{
+        issuesGitData,
         githubData,
         fetchIssuesGit,
         issuesArray,
