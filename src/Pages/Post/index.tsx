@@ -7,7 +7,7 @@ import {
   SocialDetails,
 } from '../Home/components/Profile/styles'
 import { HomeContainer } from '../Home/styles'
-import { PostInfoCard, PostLinks } from './styles'
+import { PostBodyCard, PostInfoCard, PostLinks } from './styles'
 import github from '../../assets/icons/github.svg'
 import {
   CalendarBlank,
@@ -17,6 +17,8 @@ import {
 } from 'phosphor-react'
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import remarkGfm from 'remark-gfm'
 
 export function Post() {
   const { selectedIssue, githubData } = useContext(HomeContext)
@@ -57,6 +59,11 @@ export function Post() {
           </SocialDetails>
         </CardSocials>
       </PostInfoCard>
+      <PostBodyCard>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {selectedIssue.body}
+        </ReactMarkdown>
+      </PostBodyCard>
     </HomeContainer>
   )
 }

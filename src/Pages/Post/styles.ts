@@ -24,3 +24,8 @@ export const PostLinks = styled.div`
     color: ${(props) => props.theme.blue};
   }
 `
+
+export const PostBodyCard = styled.main`
+  text-align: justify;
+  padding: 2rem;
+`
