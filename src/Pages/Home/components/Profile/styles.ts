@@ -40,7 +40,6 @@ export const CardSocials = styled.div`
 export const CardIcons = styled.img`
   width: 1.1rem;
   height: 1.1rem;
-  color: red;
   background-color: ${(props) => props.theme['base-label']};
   border-radius: 999px;
   padding: 0.1rem;
@@ -51,4 +50,5 @@ export const SocialDetails = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  font-size: 1rem;
 `
